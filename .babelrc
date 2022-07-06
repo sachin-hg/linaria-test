@@ -1,7 +1,11 @@
 {
-  "presets": [
-    "@babel/preset-env",
-    "@babel/preset-react",
-    "@linaria/babel-preset"
-  ]
+  "presets": ["@babel/preset-env", "@babel/preset-react"],
+  "env": {
+    "linaria": {
+      "presets": ["@linaria/babel-preset"]
+    },
+    "emotion": {
+      "presets": ["@emotion/babel-preset-css-prop"]
+    }
+  }
 }

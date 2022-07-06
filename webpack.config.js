@@ -8,7 +8,10 @@ module.exports = {
   mode: dev ? 'development' : 'production',
   devtool: 'source-map',
   entry: {
-    app: './src/App'
+    app: './src/App.jsx'
+  },
+  resolve: {
+    extensions: ['.js', '.jsx', '.css']
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -26,12 +29,29 @@ module.exports = {
     rules: [
       {
         test: /\.js$/,
+        exclude: [/node_modules/, /\.linaria\.js/],
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              envName: 'emotion'
+            }
+          }
+        ]
+      },
+      {
+        test: /\.linaria\.js$/,
         exclude: /node_modules/,
         use: [
-          { loader: 'babel-loader' },
+          {
+            loader: 'babel-loader',
+            options: {
+              envName: 'linaria'
+            }
+          },
           {
             loader: '@linaria/webpack-loader',
-            options: { sourceMap: dev }
+            options: { sourceMap: dev, evaluate: true }
           }
         ]
       },
