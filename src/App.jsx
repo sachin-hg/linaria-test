@@ -1,8 +1,9 @@
-import { css } from '@emotion/react'
+import {css} from '@emotion/react'
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { titlecolor } from './constants'
+import {titlecolor} from './constants'
 import Child1 from './ChileCompo.linaria.js'
+import C3 from './C3'
 
 const emotionStyle = css`
   font-size: 30px;
@@ -39,10 +40,11 @@ const propStyle = css`
 `
 
 const App = () => (
-  <div css={responsiveLayoutCss}>
-    <h1 css={[titleColor, titleClass, emotionStyle]}>Hello world!</h1>
-    <Child1 css={propStyle} />
-  </div>
+    <div css={responsiveLayoutCss}>
+        <C3/>
+        <h1 css={[titleColor, titleClass, emotionStyle]}>Hello world!</h1>
+        <Child1 css={propStyle}/>
+    </div>
 )
 
-ReactDOM.render(<App />, document.getElementById('root'))
+ReactDOM.render(<App/>, document.getElementById('root'))
